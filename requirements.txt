@@ -1,5 +1,4 @@
+-r yolov8_tracking_requirements.txt
 streamlit
 Pillow
 imageio
-ultralytics
-opencv-python-headless
