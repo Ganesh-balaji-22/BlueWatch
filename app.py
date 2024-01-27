@@ -1,17 +1,20 @@
-
 import streamlit as st
 from PIL import Image
-
 import os
+import imageio
 import shutil 
 from ultralytics import YOLO
-from moviepy.editor import VideoFileClip
 
-def avi_mp(avi_file, mp4_file):
+def convert_avi_to_mp4(avi_file, mp4_file):
+    reader = imageio.get_reader(avi_file)
+    fps = reader.get_meta_data()['fps']
+    
+    writer = imageio.get_writer(mp4_file, fps=fps, codec='libx264', quality=8)
 
-    video_clip = VideoFileClip(avi_file)
-    video_clip.write_videofile(mp4_file, codec="libx264", audio_codec="aac")
-    video_clip.close()
+    for frame in reader:
+        writer.append_data(frame)
+
+    writer.close()
 
 def yolov8(img_path):
     
@@ -56,7 +59,7 @@ def main():
             st.write("")
             st.write("Analyzing video... (add your analysis logic here)")
         mp4_path="output/1.mp4"
-        avi_mp(output_path,mp4_path)
+        convert_avi_to_mp4(output_path,mp4_path)
         st.video(mp4_path)
         shutil.rmtree('runs/detect')
 main()
