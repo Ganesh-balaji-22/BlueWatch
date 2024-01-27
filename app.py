@@ -1,16 +1,17 @@
 
 import streamlit as st
 from PIL import Image
+
 import os
 import shutil 
 from ultralytics import YOLO
 from moviepy.editor import VideoFileClip
 
 def avi_mp(avi_file, mp4_file):
-    pass '''
+
     video_clip = VideoFileClip(avi_file)
     video_clip.write_videofile(mp4_file, codec="libx264", audio_codec="aac")
-    video_clip.close()'''
+    video_clip.close()
 
 def yolov8(img_path):
     
