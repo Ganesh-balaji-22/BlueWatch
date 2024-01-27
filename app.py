@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import os
 import imageio
-import cv2
+from cv2 import imread, imwrite
 import shutil 
 from ultralytics import YOLO
 
