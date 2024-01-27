@@ -1,0 +1,4 @@
+# yolov8_tracking/requirements.txt
+ultralytics
+opencv-python-headless
+# Add other specific versions or dependencies related to yolov8_tracking
