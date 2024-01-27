@@ -4,7 +4,6 @@ import os
 import imageio
 import shutil 
 from ultralytics import YOLO
-import cv2 
 
 def convert_avi_to_mp4(avi_file, mp4_file):
     reader = imageio.get_reader(avi_file)
@@ -18,6 +17,7 @@ def convert_avi_to_mp4(avi_file, mp4_file):
     writer.close()
 
 def yolov8(img_path):
+    import cv2
     model=YOLO("Model/best.pt")
     result=model.predict(img_path,save=True)
     return result
