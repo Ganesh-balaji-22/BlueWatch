@@ -3,7 +3,7 @@ imageio==2.33.1
 opencv_contrib_python==4.9.0.80
 opencv_python==4.9.0.80
 opencv_python_headless==4.9.0.80
-yaml
+pyyaml
 Pillow==10.2.0
 streamlit==1.27.2
 ultralytics==8.1.5
