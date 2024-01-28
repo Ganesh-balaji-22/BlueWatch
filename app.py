@@ -18,7 +18,7 @@ def convert_avi_to_mp4(avi_file, mp4_file):
     writer.close()
 
 def yolov8(img_path):
-    model=YOLO("Model/best.pt")
+    model=YOLO("best.pt")
     result=model.predict(img_path,save=True)
     return result
 
